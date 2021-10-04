@@ -1,4 +1,8 @@
 import React from 'react'
+import ItemsList from './ItemsList';
+import StepsDisplay from './StepsDisplay';
+import VisualsContainer from './VisualsContainer';
+import ResourcesDisplay from './ResourcesDisplay';
 
 function FeedPage() {
     return (
@@ -6,10 +10,10 @@ function FeedPage() {
             <h1>LIVE FEED</h1>
             <div>
                 <h2>USER---------------------------------------------Create a post Box</h2>
-                <div>Items List</div>
-                <div>---------------------------------Visuals</div>
-                <div>---------------------------------Steps</div>
-                <div>=====================================================================================================Resources</div>
+                <ItemsList/>
+                <VisualsContainer/>
+                <StepsDisplay/>
+                <ResourcesDisplay/>
             </div>
         </div>
     )

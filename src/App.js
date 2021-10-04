@@ -7,11 +7,10 @@ import CreatePost from './components/CreatePost';
 function App() {
   return (
     <div>
-      <h1>Welcome To Rumage(clickable to home)</h1>
+      <h1>Welcome To Rumage============<div>+ <CreatePost/> +</div> </h1>
       <p>Where you can learn anything!</p>
       <HomePage/>
       <FeedPage/>
-      <CreatePost/>
     </div>
   );
 }

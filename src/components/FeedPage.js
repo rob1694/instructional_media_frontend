@@ -3,7 +3,14 @@ import React from 'react'
 function FeedPage() {
     return (
         <div>
-            LIVE FEED!!!
+            <h1>LIVE FEED</h1>
+            <div>
+                <h2>USER</h2>
+                <div>Items List</div>
+                <div>---------------------------------Visuals</div>
+                <div>---------------------------------Steps</div>
+                <div>=====================================================================================================Resources</div>
+            </div>
         </div>
     )
 }

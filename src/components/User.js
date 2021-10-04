@@ -15,7 +15,7 @@ function User() {
             const viewUsers = users.map((user) => {
                         return (
                             <div>
-                                <h2>{user.username}  (Create a post Box)</h2>
+                                <h1>{user.username}  (Create a post Box)</h1>
                                 <FeedPage
                                 key = {user.id}
                                 

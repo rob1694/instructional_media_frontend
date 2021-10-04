@@ -28,7 +28,7 @@ function FeedPage(  ) {
 
     return (
         <div>
-            <h1>LIVE FEED</h1>
+            <h2>LIVE FEED</h2>
             <div>
                 {viewPosts}
             </div>

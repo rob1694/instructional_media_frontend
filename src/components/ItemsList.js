@@ -1,15 +1,18 @@
 import React from 'react'
 
- function ItemsList() {
+ function ItemsList( { items } ) {
+
+    const viewItems = items.map((item) => {
+        return (
+            <li>{item}</li>
+             )
+        }
+      )
+
     return (
         <div>
             Items List
-            <li>-</li>
-            <li>-</li>
-            <li>-</li>
-            <li>-</li>
-            <li>-</li>
-            <li>-</li>
+            {viewItems}
             
         </div>
     )

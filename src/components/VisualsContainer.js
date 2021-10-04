@@ -1,13 +1,17 @@
 import React from 'react'
 
-function VisualsContainer() {
+function VisualsContainer( { imgs } ) {
+
+    const viewImgs = imgs.map((img) => {
+        return (
+            <a>{img}</a>
+             )
+        }
+      )
+
     return (
         <div>
-            <div>_____________</div>
-            <div>|~~~~~~~~~~~~|</div>
-            <div>|~~~~~~~~~~~~|</div>
-            <div>|~~~~~~~~~~~~|</div>
-            <div>_____________</div>
+            {viewImgs}
         </div>
     )
 }

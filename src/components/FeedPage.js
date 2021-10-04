@@ -4,12 +4,16 @@ import StepsDisplay from './StepsDisplay';
 import VisualsContainer from './VisualsContainer';
 import ResourcesDisplay from './ResourcesDisplay';
 
+
 function FeedPage() {
+
+    
+
+
     return (
         <div>
             <h1>LIVE FEED</h1>
             <div>
-                <h2>USER---------------------------------------------Create a post Box</h2>
                 <ItemsList/>
                 <VisualsContainer/>
                 <StepsDisplay/>

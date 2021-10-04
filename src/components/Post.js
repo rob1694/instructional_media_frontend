@@ -27,7 +27,7 @@ function Post( { post } ) {
                 <ItemsList items = {items}/>
                 <VisualsContainer imgs = {imgs}/>
                 <StepsDisplay steps = {steps }/>
-                <ResourcesDisplay references = {references}/>
+                <ResourcesDisplay references = {references} post = {post}/>
         </div>
     )
 }

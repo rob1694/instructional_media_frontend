@@ -5,7 +5,7 @@ function FeedPage() {
         <div>
             <h1>LIVE FEED</h1>
             <div>
-                <h2>USER</h2>
+                <h2>USER---------------------------------------------Create a post Box</h2>
                 <div>Items List</div>
                 <div>---------------------------------Visuals</div>
                 <div>---------------------------------Steps</div>

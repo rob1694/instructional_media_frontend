@@ -3,8 +3,6 @@ import React from 'react'
 function HomePage() {
     return (
         <div>
-            <h1>Welcome To Rumage</h1>
-            <p>Where you can learn anything!</p>
             
             <div>-----------Sample Feed-------------(click able leeds to Feed)</div>
 

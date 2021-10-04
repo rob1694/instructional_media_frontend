@@ -1,23 +1,36 @@
 import React from 'react'
-import ItemsList from './ItemsList';
-import StepsDisplay from './StepsDisplay';
-import VisualsContainer from './VisualsContainer';
-import ResourcesDisplay from './ResourcesDisplay';
+import Post from './Post';
+import { useEffect, useState } from 'react'
 
 
-function FeedPage() {
+function FeedPage(  ) {
 
-    
+    const [ posts, setPost ] = useState([])
+
+    useEffect(() => {
+            fetch('http://localhost:3000/posts')
+              .then(r => r.json())
+              .then((json) => setPost(json))
+            }, []);
+
+
+    const viewPosts = posts.map((post) => {
+        return (
+            <Post
+            key = {post.id}
+            post = {post}
+            />
+             )
+        }
+      )
+
 
 
     return (
         <div>
             <h1>LIVE FEED</h1>
             <div>
-                <ItemsList/>
-                <VisualsContainer/>
-                <StepsDisplay/>
-                <ResourcesDisplay/>
+                {viewPosts}
             </div>
         </div>
     )

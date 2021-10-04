@@ -16,7 +16,10 @@ function User() {
                         return (
                             <div>
                                 <h2>{user.username}  (Create a post Box)</h2>
-                                <FeedPage/>
+                                <FeedPage
+                                key = {user.id}
+                                
+                                />
                             </div>
                          )
                     }

@@ -1,27 +1,19 @@
 import React from 'react'
 // import { useEffect, useState } from 'react'
 
-function ResourcesDisplay() {
+function ResourcesDisplay( { references } ) {
 
-// const [ references, setReferences ] = useState([])
-
-// useEffect(() => {
-//     fetch('http://localhost:3000/references')
-//       .then(r => r.json())
-//       .then((json) => setReferences(json))
-//     }, []);
-
-//     const viewResources = references.map((references) => {
-//         return (
-//             <h3>{references}</h3>
-//          )
-//     }
-//   )
+    const viewResources = references.map((reference) => {
+        return (
+            <h3>{reference.href}</h3>
+         )
+    }
+  )
 
     return (
         <div>
             <h2>RESOURCES</h2>
-            {/* {viewResources} */}
+            {viewResources}
         </div>
     )
 }

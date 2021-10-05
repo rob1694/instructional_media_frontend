@@ -1,12 +1,12 @@
 import React from 'react'
-// import UpdatePost from './UpdatePost';
+import UpdatePost from './UpdatePost';
 // import ItemsList from './ItemsList';
 // import StepsDisplay from './StepsDisplay';
 // import VisualsContainer from './VisualsContainer';
 import ResourcesDisplay from './ResourcesDisplay';
 import { useEffect, useState } from 'react'
 
-function Post( { post, posts, setPost } ) {
+function Post( { user, post, posts, setPost } ) {
 
     const { title, description, imgs, steps, items } = post
 
@@ -33,7 +33,13 @@ function Post( { post, posts, setPost } ) {
                 <h2>{title} <button>Edit Post</button></h2>
                 <p>Description: {description}</p>
 
-                {/* <UpdatePost post = {post} posts = {posts} setPost = {setPost}/> */}
+                <UpdatePost 
+                user = {user} 
+                post = {post} 
+                posts = {posts} 
+                setPost = {setPost}
+                
+                />
                 {/* <ItemsList items = {items}/>
                 <VisualsContainer imgs = {imgs}/>
                 <StepsDisplay steps = {steps}/> */}

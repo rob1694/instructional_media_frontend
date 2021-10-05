@@ -3,6 +3,7 @@ import FeedPage from './FeedPage';
 import { useEffect, useState } from 'react'
 import CreatePost from './CreatePost';
 
+
 function User() {
 
     const [ users, setUsers ] = useState([])
@@ -34,6 +35,7 @@ function User() {
                                 />
                                 <FeedPage
                                 key = {user.id}
+                                user = {user}
                                 posts = {posts}
                                 setPost = {setPost}
                                 />

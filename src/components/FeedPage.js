@@ -2,13 +2,14 @@ import React from 'react'
 import Post from './Post';
 
 
-function FeedPage( { posts, setPost } ) {
+function FeedPage( { user, posts, setPost } ) {
 
 
     const viewPosts = posts.map((post) => {
         return (
             <Post
             key = {post.id}
+            user = {user}
             post = {post}
             posts = {posts}
             setPost = {setPost}

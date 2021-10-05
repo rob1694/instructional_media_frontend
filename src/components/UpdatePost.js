@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-function UpdatePost( { post, posts, setPost } ) {
+function UpdatePost( { user, post, posts, setPost } ) {
 
     const [ formData, setFormData ] = useState({
         title: "",
@@ -26,6 +26,7 @@ function UpdatePost( { post, posts, setPost } ) {
     }
 
     const updatedPost = {
+        user_id: user.id,
         title: formData.title,
         description: formData.description,
     }

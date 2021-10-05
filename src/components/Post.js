@@ -26,6 +26,31 @@ function Post( { user, post, posts, setPost } ) {
         setReferences([...references, reference])
     }
 
+    function deleteReference(referenceID) {
+        const newURL = `${'http://localhost:3000/references'}/${referenceID}`;
+        const config = { method: "DELETE" };
+        fetch(newURL, config)
+          .then(r => r.json())
+          .then(() => {
+            const deleteReferences = references.filter(reference => reference.id !== referenceID);
+           setPost(deleteReferences)
+          })
+      }
+
+    function deletePost(postID) {
+        const newURL = `${'http://localhost:3000/posts'}/${postID}`;
+        const config = { method: "DELETE" };
+        fetch(newURL, config)
+          .then(r => r.json())
+          .then(() => {
+            const deletePosts = posts.filter(post => post.id !== postID);
+           setPost(deletePosts)
+          })
+      }
+
+      function handleDeletePost() {
+          deletePost(post.id)
+      }
     
 
     return (
@@ -47,7 +72,9 @@ function Post( { user, post, posts, setPost } ) {
                 references = {references} 
                 post = {post}
                 onAddReference = {onAddReference}
+                deleteReference = {deleteReference}
                 />
+                <button onClick = {handleDeletePost}>DELETE Post</button>
         </div>
     )
 }

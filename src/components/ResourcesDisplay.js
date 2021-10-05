@@ -1,17 +1,25 @@
 import React from 'react'
 import { useState } from 'react'
 
-function ResourcesDisplay( { references, post, onAddReference} ) {
+function ResourcesDisplay( { deleteReference, references, post, onAddReference} ) {
 
     const filteredResources = references.filter(reference => reference.post_id === post.id)
 
     const viewResources = filteredResources.map((reference) => {
+      function handleDeleteReference() {
+        deleteReference(reference.id)
+    }
         return (
+          <div>
             <h3>{reference.href}</h3>
+            <button onClick = {handleDeleteReference} >delete link</button>
+          </div>
             
          )
     }
   )
+
+  
 
   const clearInput = () => { setReferenceInput({ href: "" })}   
 
@@ -42,8 +50,6 @@ function ResourcesDisplay( { references, post, onAddReference} ) {
             .then((r) => r.json())
             .then(onAddReference)
             .then(clearInput)
-          console.log(referenceInput)
-          console.log(referenceInput.href)
         }
 
 

@@ -28,6 +28,7 @@ function User() {
                             <div>
                                 <h1>{user.username}  <button>new post</button></h1>
                                 <CreatePost
+                                user = {user}
                                 posts = {posts}
                                 setPost = {setPost}
                                 />

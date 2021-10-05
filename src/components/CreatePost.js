@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-function CreatePost( { posts, setPost } ) {
+function CreatePost( { user, posts, setPost } ) {
 
     const [formData, setFormData] = useState({
         title: "",
@@ -29,6 +29,7 @@ function CreatePost( { posts, setPost } ) {
         e.preventDefault();
 
     const newPost = {
+        user_id: user.id,
         title: formData.title,
         description: formData.description
     }

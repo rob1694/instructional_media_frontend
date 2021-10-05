@@ -1,17 +1,8 @@
 import React from 'react'
 import Post from './Post';
-import { useEffect, useState } from 'react'
 
 
-function FeedPage(  ) {
-
-    const [ posts, setPost ] = useState([])
-
-    useEffect(() => {
-            fetch('http://localhost:3000/posts')
-              .then(r => r.json())
-              .then((json) => setPost(json))
-            }, []);
+function FeedPage( { posts, setPost } ) {
 
 
     const viewPosts = posts.map((post) => {
@@ -19,6 +10,8 @@ function FeedPage(  ) {
             <Post
             key = {post.id}
             post = {post}
+            posts = {posts}
+            setPost = {setPost}
             />
              )
         }

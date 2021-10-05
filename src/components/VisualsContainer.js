@@ -4,7 +4,7 @@ function VisualsContainer( { imgs } ) {
 
     const viewImgs = imgs.map((img) => {
         return (
-            <a>{img}</a>
+            <p >{img}</p>
              )
         }
       )

@@ -58,7 +58,7 @@ function CreatePost( { user, posts, setPost } ) {
                 <form onSubmit = {handleSubmit}>
                     <input name = "title" placeholder = "Title" value = {formData.title} onChange = {handleChange}/>
                     <input name = "description" placeholder = "Description" value = {formData.description} onChange = {handleChange}/>
-                    <button>Create</button>
+                    <button className = "btn btn-primary">Create</button>
                 </form>
         </div>
     )

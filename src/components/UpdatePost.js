@@ -63,7 +63,7 @@ function UpdatePost( { user, post, posts, setPost } ) {
         <div>
             <h2>Editing </h2>
             <form onSubmit = {editPost}>
-                <div>
+                <div class = "form group">
                     <label>Title: </label>
                     <input name = "title" value = {formData.title} onChange = {handleChange}/>
                 </div>
@@ -72,7 +72,7 @@ function UpdatePost( { user, post, posts, setPost } ) {
                     <input name = "description" value = {formData.description} onChange = {handleChange}/>
                 </div>
                 <div>
-                    <button>Submit Edit</button>
+                    <button type = "submit" className = "btn btn-primary">Submit Edit</button>
                 </div>
             </form>
 

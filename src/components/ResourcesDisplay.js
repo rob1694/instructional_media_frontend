@@ -12,7 +12,7 @@ function ResourcesDisplay( { deleteReference, references, post, onAddReference} 
         return (
           <div>
             <h3>{reference.href}</h3>
-            <button onClick = {handleDeleteReference} >delete link</button>
+            <button className = "btn btn-warning" onClick = {handleDeleteReference} >Remove Resourcse Link</button>
           </div>
             
          )
@@ -54,12 +54,12 @@ function ResourcesDisplay( { deleteReference, references, post, onAddReference} 
 
 
     return (
-        <div>
+        <div >
             <h2>RESOURCES</h2>
             <h3>Add a Resource</h3>
             <form onSubmit = {handleSubmit}>
                 <input name = "href" placeholder = "Link" value = {referenceInput.href} onChange = {handleChange}/>
-                <button>Add reference</button>
+                <button className = "btn btn-info">Add reference</button>
             </form>
             {viewResources}
         </div>

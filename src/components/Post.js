@@ -33,7 +33,7 @@ function Post( { user, post, posts, setPost } ) {
           .then(r => r.json())
           .then(() => {
             const deleteReferences = references.filter(reference => reference.id !== referenceID);
-           setPost(deleteReferences)
+           setReferences(deleteReferences)
           })
       }
 
@@ -54,27 +54,36 @@ function Post( { user, post, posts, setPost } ) {
     
 
     return (
-        <div>
-                <h2>{title} <button>Edit Post</button></h2>
+        <div className = "container border border-primary m-3">
+                <h2>{title} </h2>
                 <p>Description: {description}</p>
+            <div className = "row">
 
-                <UpdatePost 
-                user = {user} 
-                post = {post} 
-                posts = {posts} 
-                setPost = {setPost}
+                <div className = "col-sm">                    
+                    <UpdatePost 
+                    user = {user} 
+                    post = {post} 
+                    posts = {posts} 
+                    setPost = {setPost}
+                    />
+                </div>
                 
-                />
                 {/* <ItemsList items = {items}/>
                 <VisualsContainer imgs = {imgs}/>
-                <StepsDisplay steps = {steps}/> */}
-                <ResourcesDisplay 
-                references = {references} 
-                post = {post}
-                onAddReference = {onAddReference}
-                deleteReference = {deleteReference}
-                />
-                <button onClick = {handleDeletePost}>DELETE Post</button>
+            <StepsDisplay steps = {steps}/> */}
+                
+                <div className = "border col-sm bg-light">
+
+                    <ResourcesDisplay 
+                    references = {references} 
+                    post = {post}
+                    onAddReference = {onAddReference}
+                    deleteReference = {deleteReference}
+                    />
+
+                </div>
+                <button className = "btn btn-danger" onClick = {handleDeletePost}>DELETE Post</button>
+            </div>
         </div>
     )
 }

@@ -26,8 +26,8 @@ function User() {
 
             const viewUsers = users.map((user) => {
                         return (
-                            <div>
-                                <h1>{user.username}  <button>new post</button></h1>
+                            <div className = "container border border-dark m-4">
+                                <h1 className = "border border secondary">{user.username}  </h1>
                                 <CreatePost
                                 user = {user}
                                 posts = {posts}

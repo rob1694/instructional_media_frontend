@@ -21,9 +21,9 @@ function FeedPage( { user, posts, setPost } ) {
 
 
     return (
-        <div>
+        <div className = "media">
             <h2>LIVE FEED</h2>
-            <div>
+            <div className = "media-body">
                 {viewPosts}
             </div>
         </div>

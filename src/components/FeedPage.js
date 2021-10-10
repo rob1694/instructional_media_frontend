@@ -1,9 +1,16 @@
 import React from 'react'
 import Post from './Post';
+import { Switch, Route } from "react-router-dom";
+import { useHistory, useRouteMatch } from 'react-router-dom'
+import CreatePost from './CreatePost';
 
+function FeedPage( { user, posts, setPost, users } ) {
 
-function FeedPage( { user, posts, setPost } ) {
+    const filterCreation = users.filter(userCreating => userCreating.id === user.id)
 
+    const history = useHistory()
+
+    const { path } = useRouteMatch()
 
     const viewPosts = posts.map((post) => {
         return (
@@ -22,7 +29,27 @@ function FeedPage( { user, posts, setPost } ) {
 
     return (
         <div className = "media">
-            <h2>LIVE FEED</h2>
+            <h2>LIVE FEED  
+                <button onClick = {() => history.push(`${path}/${user.id}/create`)}>
+                    +
+                </button> 
+            </h2>
+
+            <Switch>
+               <Route path = {`${path}/${user.id}/create`}>
+              
+                   {filterCreation.map((user) => (
+                    <CreatePost
+                    user = {user}
+                    posts = {posts}
+                    setPost = {setPost}
+                    history = {history}
+                    />
+                    ))
+                }          
+               </Route>
+             </Switch>
+                    
             <div className = "media-body">
                 {viewPosts}
             </div>

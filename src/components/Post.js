@@ -54,10 +54,11 @@ function Post( { user, post, posts, setPost } ) {
     
 
     return (
-        <div className = "container border border-primary m-3">
+        <div className = "container border border-primary m-3 row">
+            <div className = "col-sm">
                 <h2>{title} </h2>
                 <p>Description: {description}</p>
-            <div className = "row">
+            </div>
 
                 <div className = "col-sm">                    
                     <UpdatePost 
@@ -70,7 +71,8 @@ function Post( { user, post, posts, setPost } ) {
                 
                 {/* <ItemsList items = {items}/>
                 <VisualsContainer imgs = {imgs}/>
-            <StepsDisplay steps = {steps}/> */}
+                <StepsDisplay steps = {steps}/> */}
+            
                 
                 <div className = "border col-sm bg-light">
 
@@ -82,8 +84,7 @@ function Post( { user, post, posts, setPost } ) {
                     />
 
                 </div>
-                <button className = "btn btn-danger" onClick = {handleDeletePost}>DELETE Post</button>
-            </div>
+            <button className = "btn btn-danger" onClick = {handleDeletePost}>DELETE Post</button>
         </div>
     )
 }

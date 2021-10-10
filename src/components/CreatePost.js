@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 
 
-function CreatePost( { user, posts, setPost } ) {
+function CreatePost( { user, posts, setPost, history } ) {
 
     const [formData, setFormData] = useState({
         title: "",
@@ -49,6 +49,7 @@ function CreatePost( { user, posts, setPost } ) {
         .then((r) => r.json())
         .then(onAddPost)
         .then(clearForm)
+        .then(() => history.push(`/users`))
     }
 
     return (

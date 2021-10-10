@@ -4,13 +4,15 @@ import { useEffect, useState } from 'react'
 import CreatePost from './CreatePost';
 
 
+
+
 function User() {
 
     const [ users, setUsers ] = useState([])
 
     const [ posts, setPost ] = useState([])
 
-    
+
 
     useEffect(() => {
             fetch('http://localhost:3000/users')
@@ -26,27 +28,33 @@ function User() {
 
             const viewUsers = users.map((user) => {
                         return (
-                            <div className = "container border border-dark m-4">
-                                <h1 className = "border border secondary">{user.username}  </h1>
-                                <CreatePost
-                                user = {user}
-                                posts = {posts}
-                                setPost = {setPost}
-                                />
+                            <div className = "container border border-dark m-4 row" >                              
+                                
+                                <h1 className = "border border secondary col">{user.username} 
+                                </h1>
+                                
                                 <FeedPage
                                 key = {user.id}
                                 user = {user}
                                 posts = {posts}
                                 setPost = {setPost}
+                                users = {users}
                                 />
                             </div>
                          )
                     }
                   )
+
+                  
+
+
     return (
         <div>
+          <div>
             {viewUsers}
+          </div>
 
+             
         </div>
     )
 }

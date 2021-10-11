@@ -102,6 +102,7 @@ function Post( { user, post, posts, setPost, history } ) {
                     post = {post}
                     onAddReference = {onAddReference}
                     deleteReference = {deleteReference}
+                    user = {user}
                     />
 
                 </div>

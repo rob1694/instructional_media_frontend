@@ -4,15 +4,18 @@ import UpdatePost from './UpdatePost';
 // import StepsDisplay from './StepsDisplay';
 // import VisualsContainer from './VisualsContainer';
 import ResourcesDisplay from './ResourcesDisplay';
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
+import { useRouteMatch, Switch, Route } from 'react-router-dom'
 
-function Post( { user, post, posts, setPost } ) {
+
+
+function Post( { user, post, posts, setPost, history } ) {
 
     const { title, description, imgs, steps, items } = post
 
     const [ references, setReferences] = useState([])
 
-    
+    const { path } = useRouteMatch()
 
     useEffect(() => {
         fetch('http://localhost:3000/references')
@@ -57,17 +60,25 @@ function Post( { user, post, posts, setPost } ) {
         <div className = "container border border-primary m-3 row">
             <div className = "col-sm">
                 <h2>{title} </h2>
-                <p>Description: {description}</p>
+                <p>{description}</p>
+                <button onClick = {() => history.push(`${path}/${user.id}/${post.id}`)}>Edit</button>
             </div>
 
+
+            <Switch>
+               <Route path = {`${path}/${user.id}/${post.id}`}>
                 <div className = "col-sm">                    
                     <UpdatePost 
                     user = {user} 
                     post = {post} 
                     posts = {posts} 
                     setPost = {setPost}
+                    history = {history}
                     />
                 </div>
+                </Route>
+            </Switch>
+            
                 
                 {/* <ItemsList items = {items}/>
                 <VisualsContainer imgs = {imgs}/>

@@ -20,6 +20,7 @@ function FeedPage( { user, posts, setPost, users } ) {
             post = {post}
             posts = {posts}
             setPost = {setPost}
+            history = {history}
             />
              )
         }
@@ -30,7 +31,7 @@ function FeedPage( { user, posts, setPost, users } ) {
     return (
         <div className = "media">
             <h2>LIVE FEED  
-                <button onClick = {() => history.push(`${path}/${user.id}/create`)}>
+                <button className = "col-sm" onClick = {() => history.push(`${path}/${user.id}/create`)}>
                     +
                 </button> 
             </h2>

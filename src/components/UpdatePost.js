@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-function UpdatePost( { user, post, posts, setPost } ) {
+function UpdatePost( { user, post, posts, setPost,history } ) {
 
     const [ formData, setFormData ] = useState({
         title: "",
@@ -48,6 +48,7 @@ function UpdatePost( { user, post, posts, setPost } ) {
                 setPost(updatedPosts);
               })
               .then(clearForm)
+              .then(() => history.push(`/users`))
           }
 
     function editPost (e) {

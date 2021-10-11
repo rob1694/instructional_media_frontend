@@ -55,13 +55,22 @@ function Post( { user, post, posts, setPost, history } ) {
           deletePost(post.id)
       }
     
+      function userPostProperties() {
+          if (user.id ===  post.user_id)
+          return ( <button className = "btn btn-danger" onClick = {handleDeletePost}>DELETE Post</button>)
+      }
+      
+      function userEditProperties() {
+          if (user.id === post.user_id)
+          return ( <button onClick = {() => history.push(`${path}/${user.id}/${post.id}`)}>Edit</button> )
+      }
 
     return (
         <div className = "container border border-primary m-3 row">
             <div className = "col-sm">
                 <h2>{title} </h2>
                 <p>{description}</p>
-                <button onClick = {() => history.push(`${path}/${user.id}/${post.id}`)}>Edit</button>
+                {userEditProperties()}
             </div>
 
 
@@ -88,6 +97,7 @@ function Post( { user, post, posts, setPost, history } ) {
                 <div className = "border col-sm bg-light">
 
                     <ResourcesDisplay 
+                    key = {post.id}
                     references = {references} 
                     post = {post}
                     onAddReference = {onAddReference}
@@ -95,7 +105,8 @@ function Post( { user, post, posts, setPost, history } ) {
                     />
 
                 </div>
-            <button className = "btn btn-danger" onClick = {handleDeletePost}>DELETE Post</button>
+                {userPostProperties()}
+            {/* <button className = "btn btn-danger" onClick = {handleDeletePost}>DELETE Post</button> */}
         </div>
     )
 }

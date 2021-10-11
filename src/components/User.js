@@ -1,7 +1,6 @@
 import React from 'react'
 import FeedPage from './FeedPage';
 import { useEffect, useState } from 'react'
-import CreatePost from './CreatePost';
 
 
 

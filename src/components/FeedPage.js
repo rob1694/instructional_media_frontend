@@ -29,9 +29,9 @@ function FeedPage( { user, posts, setPost, users } ) {
 
 
     return (
-        <div className = "media">
+        <div className = "media container">
             <h2>LIVE FEED  
-                <button className = "col-sm" onClick = {() => history.push(`${path}/${user.id}/create`)}>
+                <button className = "col " onClick = {() => history.push(`${path}/${user.id}/create`)}>
                     +
                 </button> 
             </h2>
@@ -41,6 +41,7 @@ function FeedPage( { user, posts, setPost, users } ) {
               
                    {filterCreation.map((user) => (
                     <CreatePost
+                    key = {user.id}
                     user = {user}
                     posts = {posts}
                     setPost = {setPost}

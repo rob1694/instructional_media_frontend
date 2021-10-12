@@ -1,23 +1,14 @@
 import React from 'react'
 import FeedPage from './FeedPage';
 import { useEffect, useState } from 'react'
+import SignUp from './SignUp';
+import { Switch, Route } from 'react-router-dom'
 
 
 
+function User( { users } ) {
 
-function User() {
-
-    const [ users, setUsers ] = useState([])
-
-    const [ posts, setPost ] = useState([])
-
-
-
-    useEffect(() => {
-            fetch('http://localhost:3000/users')
-              .then(r => r.json())
-              .then((json) => setUsers(json))
-            }, []);
+  const [ posts, setPost ] = useState([])
 
     useEffect(() => {
             fetch('http://localhost:3000/posts')
@@ -43,16 +34,12 @@ function User() {
                          )
                     }
                   )
-
-                  
-
-
+              
     return (
         <div>
           <div>
             {viewUsers}
           </div>
-
              
         </div>
     )

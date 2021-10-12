@@ -2,9 +2,23 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import HomePage from './components/HomePage';
 import User from './components/User';
+import SignUp from './components/SignUp';
 import NavBar from './components/NavBar';
+import { useState, useEffect } from 'react'
 
 function App() {
+
+  const [ users, setUsers ] = useState([])
+
+    function onAddUser(user) {
+      setUsers([...users, user])
+    }
+
+    useEffect(() => {
+            fetch('http://localhost:3000/users')
+              .then(r => r.json())
+              .then((json) => setUsers(json))
+            }, []);
 
   return (
     <div className = "flex-row">
@@ -22,9 +36,17 @@ function App() {
             </Route>
           
             <Route path="/users">
-              <User/>
-             </Route>
-            
+              <User
+              users = {users}
+              />
+             </Route>   
+
+            <Route path = {'/signup'}>               
+                    <SignUp
+                      onAddUser = {onAddUser}
+                    />
+            </Route>
+                        
              <Route path="*">
                 <Redirect to="/"/>
               </Route>

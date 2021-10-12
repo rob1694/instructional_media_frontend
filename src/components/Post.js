@@ -107,7 +107,6 @@ function Post( { user, post, posts, setPost, history } ) {
 
                 </div>
                 {userPostProperties()}
-            {/* <button className = "btn btn-danger" onClick = {handleDeletePost}>DELETE Post</button> */}
         </div>
     )
 }

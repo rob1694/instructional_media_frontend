@@ -36,7 +36,7 @@ function ResourcesDisplay( { deleteReference, references, post, onAddReference, 
     }
 
     function userResourceProperties() {
-      if ( user.id == post.user_id)
+      if ( user.id === post.user_id)
       return (
         <form onSubmit = {handleSubmit}>
                   <input name = "href" placeholder = "Link" value = {referenceInput.href} onChange = {handleChange}/>

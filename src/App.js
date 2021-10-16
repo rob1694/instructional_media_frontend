@@ -5,6 +5,7 @@ import User from './components/User';
 import SignUp from './components/SignUp';
 import NavBar from './components/NavBar';
 import { useState, useEffect } from 'react'
+import Login from './components/Login';
 
 function App() {
 
@@ -27,15 +28,13 @@ function App() {
       </div>
 
       <div className = "container flex-col">
-        <h1>Welcome To Rumage</h1>
-        <p>Simple steps to learn anything!</p>
         <Router>
           <Switch>
             <Route exact path ="/">
               <HomePage/>
             </Route>
           
-            <Route path="/users">
+            <Route path="/user">
               <User
               users = {users}
               />
@@ -44,6 +43,13 @@ function App() {
             <Route path = {'/signup'}>               
                     <SignUp
                       onAddUser = {onAddUser}
+                    />
+            </Route>
+
+            <Route path = {'/login'}>               
+                    <Login
+                      setUsers = {setUsers}
+                      users = {users}
                     />
             </Route>
                         

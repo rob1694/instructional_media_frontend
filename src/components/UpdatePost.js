@@ -48,7 +48,7 @@ function UpdatePost( { user, post, posts, setPost,history } ) {
                 setPost(updatedPosts);
               })
               .then(clearForm)
-              .then(() => history.push(`/users`))
+              .then(() => history.push(`/user`))
           }
 
     function editPost (e) {

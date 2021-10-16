@@ -1,7 +1,7 @@
 import React from 'react'
 import UpdatePost from './UpdatePost';
-// import ItemsList from './ItemsList';
-// import StepsDisplay from './StepsDisplay';
+import ItemsList from './ItemsList';
+import StepsDisplay from './StepsDisplay';
 // import VisualsContainer from './VisualsContainer';
 import ResourcesDisplay from './ResourcesDisplay';
 import { useEffect, useState } from 'react';
@@ -11,7 +11,7 @@ import { useRouteMatch, Switch, Route } from 'react-router-dom'
 
 function Post( { user, post, posts, setPost, history } ) {
 
-    const { title, description, imgs, steps, items } = post
+    const { title, description, steps, items } = post
 
     const [ references, setReferences] = useState([])
 
@@ -51,29 +51,67 @@ function Post( { user, post, posts, setPost, history } ) {
           })
       }
 
-      function handleDeletePost() {
+      function handleDeletePost() { // add a secondary delete check to function on click
           deletePost(post.id)
       }
     
       function userPostProperties() {
           if (user.id ===  post.user_id)
-          return ( <button className = "btn btn-danger" onClick = {handleDeletePost}>DELETE Post</button>)
+          return ( <button className = "btn btn-danger m-2 btn-sm" onClick = {handleDeletePost}>DELETE Post</button>)
       }
       
       function userEditProperties() {
           if (user.id === post.user_id)
-          return ( <button onClick = {() => history.push(`${path}/${user.id}/${post.id}`)}>Edit</button> )
+          return ( <button onClick = {() => history.push(`${path}/${user.id}/${post.id}`)}>Edit Post</button> )
       }
+
+      function properUsername () {
+          if (user.id === post.user_id)
+          return user.username
+      }
+
+
+      //add null checks or defaults for items, imgs, steps
 
     return (
         <div className = "container border border-primary m-3 row">
-            <div className = "col-sm">
-                <h2>{title} </h2>
-                <p>{description}</p>
-                {userEditProperties()}
+
+            <h5 className = "row" >@{properUsername()}</h5>
+            
+                
+                <div className = "col-2">
+                    <ItemsList items = {items}/>
+                </div>
+            
+            <div className = "col-8">
+
+
+            
+                <div className = "col-sm">
+                
+                    <h2>{title} </h2>
+                    <p>{description}</p>
+                    {userEditProperties()}
+                    {/* <VisualsContainer imgs = {imgs}/> */}
+                </div>
+
+                <StepsDisplay steps = {steps}/>
+
+            </div>                                 
+                
+            <div className = "border col-sm-2 bg-light">
+
+                    <ResourcesDisplay 
+                    key = {post.id}
+                    references = {references} 
+                    post = {post}
+                    onAddReference = {onAddReference}
+                    deleteReference = {deleteReference}
+                    user = {user}
+                    />
+
             </div>
-
-
+            
             <Switch>
                <Route path = {`${path}/${user.id}/${post.id}`}>
                 <div className = "col-sm">                    
@@ -87,26 +125,8 @@ function Post( { user, post, posts, setPost, history } ) {
                 </div>
                 </Route>
             </Switch>
-            
-                
-                {/* <ItemsList items = {items}/>
-                <VisualsContainer imgs = {imgs}/>
-                <StepsDisplay steps = {steps}/> */}
-            
-                
-                <div className = "border col-sm bg-light">
 
-                    <ResourcesDisplay 
-                    key = {post.id}
-                    references = {references} 
-                    post = {post}
-                    onAddReference = {onAddReference}
-                    deleteReference = {deleteReference}
-                    user = {user}
-                    />
-
-                </div>
-                {userPostProperties()}
+            {userPostProperties()}
         </div>
     )
 }

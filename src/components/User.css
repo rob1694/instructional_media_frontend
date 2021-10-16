@@ -1,0 +1,9 @@
+ .container-row {
+    border-image-slice: 780 240 864 0;
+    border-image-width: 12px 12px 12px 12px;
+    border-image-outset: 0px 0px 0px 0px;
+    border-image-repeat: repeat repeat;
+    border-image-source: 'src/images/books-1200x880-1.png'
+ }
+
+

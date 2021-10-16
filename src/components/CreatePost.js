@@ -7,12 +7,14 @@ function CreatePost( { user, posts, setPost, history } ) {
     const [formData, setFormData] = useState({
         title: "",
         description: ""
+        // item : ""
     })
 
     function clearForm() {
         setFormData({
             title: "",
             description: ""
+            // item: ""
         })
     }
 
@@ -33,6 +35,7 @@ function CreatePost( { user, posts, setPost, history } ) {
         user_id: user.id,
         title: formData.title,
         description: formData.description
+        // item : [].push(formData.item)
     }
 
     function onAddPost(post) {
@@ -49,7 +52,7 @@ function CreatePost( { user, posts, setPost, history } ) {
         .then((r) => r.json())
         .then(onAddPost)
         .then(clearForm)
-        .then(() => history.push(`/users`))
+        .then(() => history.push(`/user`))
     }
 
     return (
@@ -59,6 +62,7 @@ function CreatePost( { user, posts, setPost, history } ) {
                 <form onSubmit = {handleSubmit}>
                     <input name = "title" placeholder = "Title" value = {formData.title} onChange = {handleChange}/>
                     <input name = "description" placeholder = "Description" value = {formData.description} onChange = {handleChange}/>
+                    {/* <input name = "item" placeholder = "Add Item" value = {formData.item} onChange = {handleChange}/> */}
                     <button className = "btn btn-primary">Create</button>
                 </form>
         </div>

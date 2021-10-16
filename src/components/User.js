@@ -1,8 +1,7 @@
 import React from 'react'
 import FeedPage from './FeedPage';
 import { useEffect, useState } from 'react'
-import SignUp from './SignUp';
-import { Switch, Route } from 'react-router-dom'
+import './User.css'
 
 
 
@@ -18,9 +17,9 @@ function User( { users } ) {
 
             const viewUsers = users.map((user) => {
                         return (
-                            <div className = "container border border-dark m-4 row" >                              
+                            <div className = "container-row" >                              
                                 
-                                <h1 className = "border border secondary col">{user.username} 
+                                <h1 className = "col">{user.username} 
                                 </h1>
                                 
                                 <FeedPage

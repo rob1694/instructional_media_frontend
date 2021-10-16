@@ -57,7 +57,7 @@ function ResourcesDisplay( { deleteReference, references, post, onAddReference, 
     }  
         return (
           <div>
-            <h3>{reference.href}</h3>
+            <a href = {reference.href}>click here for resource</a>
             {userRemoverProperty()}
             
           </div>

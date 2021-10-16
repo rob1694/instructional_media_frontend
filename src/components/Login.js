@@ -1,8 +1,10 @@
 import React from 'react'
+import { useHistory} from 'react-router-dom'
 import { useState } from 'react'
-import { useHistory } from 'react-router-dom'
 
-function SignUp( { onAddUser} ) {
+
+
+ function Login( { setUsers, users} ) {
 
     const [formData, setFormData] = useState({
         username: ""
@@ -18,39 +20,32 @@ function SignUp( { onAddUser} ) {
           [name]: value
         });
     }
-
+    const specificUser = users.filter(user => user.username === formData.username) 
+    
     function handleSubmit(e) {
-        e.preventDefault();
+        e.preventDefault();    
 
-    const newUser = {
-        username: formData.username
-    }
+            setUsers(specificUser)
+            
+            const navigateUsers = () => history.push(`/user`)
+            
+            navigateUsers()
+        }
+    
 
-    fetch( 'http://localhost:3000/users', { 
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newUser),
-      })
-        .then((r) => r.json())
-        .then(onAddUser)
-        .then(() => history.push(`/login`))
-    }
-
-
+    console.log(specificUser)
     return (
         <div>
-            <h1>Create Username</h1>
+            <h1>LogIn</h1>
                 <form onSubmit = {handleSubmit}>
                     <div>
                         <label> Enter Username</label>
                     </div>    
                     <input name = "username" placeholder = "Username" value = {formData.username} onChange = {handleChange}/>
-                    <button className = "btn btn-primary">Sign Up</button>
-                </form>    
+                    <button className = "btn btn-primary">Login</button>
+                </form> 
         </div>
     )
 }
 
-export default SignUp;
+export default Login;
